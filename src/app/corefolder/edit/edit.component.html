@@ -1,0 +1,100 @@
+<div class="shadow row p-5" id="div1">
+  <div class="col-md-9" id="div2">
+
+    <form [formGroup]="form" (ngSubmit)="SubmitForm()">
+
+      <h3>Add Student</h3>
+      <input type="hidden" formControlName="StudentId">
+
+      <div class="mb-3">
+        <label class="form-label"> Student Name</label>
+        <input type="text" class="form-control" formControlName="StudentName" placeholder="Enter Student Name" required
+          minlength="4">
+     
+      <div
+        *ngIf="form.get('StudentName')?.invalid && (form.get('StudentName')?.dirty || form.get('StudentName')?.touched)"
+        class="text-danger">
+
+        <div *ngIf="form.get('StudentName')?.errors?.['required']">
+          Name is required.
+        </div>
+        <div *ngIf="form.get('StudentName')?.errors?.['minlength']">
+          Name must be at least 4 characters long.
+        </div>
+      </div>
+    </div>
+
+      <div class="mb-3">
+        <label class="form-label"> Date of Birth</label>
+        <input type="date" class="form-control" formControlName="DateOfBirth" placeholder="dd-mm-yyyy">
+      <div
+        *ngIf="form.get('DateOfBirth')?.invalid && (form.get('DateOfBirth')?.dirty || form.get('DateOfBirth')?.touched)"
+        class="text-danger">
+
+        <div *ngIf="form.get('DateOfBirth')?.errors?.['required']">
+          DateOfBirth is required.
+        </div>
+      </div>
+    </div>
+
+      <div class="mb-3">
+        <label class="form-label">Select Gender</label>
+        <div class="form-check">
+          <input class="form-check-input" formControlName="Gender" type="radio" name="Gender" value="Male">
+          <label class="form-check-label">
+            Male
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" formControlName="Gender" type="radio" name="Gender" value="Female">
+          <label class="form-check-label">
+            Female
+          </label>
+        </div>
+        <div
+          *ngIf="form.get('Gender')?.invalid && (form.get('Gender')?.dirty || form.get('Gender')?.touched)"
+          class="text-danger">
+
+          <div *ngIf="form.get('Gender')?.errors?.['required']">
+            Gender is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label"> Student Email</label>
+        <input type="email" formControlName="StudentEmail" class="form-control" placeholder="Enter Student Email">
+      <div
+        *ngIf="form.get('StudentEmail')?.invalid && (form.get('StudentEmail')?.dirty || form.get('StudentEmail')?.touched)"
+        class="text-danger">
+
+        <div *ngIf="form.get('StudentEmail')?.errors?.['required']">
+          Email is required.
+        </div>
+        <div *ngIf="form.get('StudentEmail')?.errors?.['email']">
+          Email is invalid
+        </div>
+      </div>
+    </div>
+
+      <div class="mb-3">
+        <label class="form-label"> Enter password</label>
+        <input type="password" formControlName="Password" class="form-control" placeholder="Enter password">
+      <div
+        *ngIf="form.get('Password')?.invalid && (form.get('Password')?.dirty || form.get('Password')?.touched)"
+        class="text-danger">
+
+        <div *ngIf="form.get('Password')?.errors?.['required']">
+          password is required.
+        </div>
+        <div *ngIf="form.get('Password')?.errors?.['pattern']">
+          Password should have minimum 8 characters, 1 uppercase letter, 1 lowercase letter and 1 number
+        </div>
+      </div></div>
+
+      <button type="submit" class="btn btn-primary">Save</button>
+      <button class="btn btn-warning">Back to list</button>
+    </form>
+
+  </div>
+</div>

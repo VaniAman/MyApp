@@ -1,0 +1,46 @@
+<div class="row mt-5">
+<div class="shadow row col-md-11" id="div2">
+    <table class="table table-bordered table-hover" style="margin-top: 10px;">
+        <thead>
+            <tr>
+                <th class="col">Action</th>
+        <th class="col">StudentName</th>
+        <th class="col">Age</th>
+        <th class="col">Gender</th>
+        <th class="col">StudentEmail</th>
+        <th class="col">Password</th>
+            </tr>
+        </thead>
+    <tbody>
+        <tr *ngFor="let items of studentViewModel">
+         
+                <td>
+                    <div style="display: inline-block;">
+                    <button [routerLink]="['/edit-student/edit/' +items.StudentId]" class="btn btn-primary btn-sm">Edit</button>
+                    </div>
+                    <div style="display: inline-block; margin-left: 3px;">
+                    <button class="btn btn-danger btn-sm" (click)="DeleteData(items.StudentId)">Delete</button>
+                    </div>
+                </td>
+                <td>
+                 {{items.StudentName}} 
+                </td>
+                <td>
+                  {{ items.Age }}
+                </td>
+                <td>
+                   {{ items.Gender}}
+                </td>
+                <td>
+                {{ items.StudentEmail }}
+                </td>
+                <td>
+                 {{ items.Password}}
+                </td>
+            </tr>
+          
+    </tbody>
+    </table>
+    
+</div>
+</div>
