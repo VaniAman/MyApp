@@ -1,12 +1,12 @@
-export class Age{
+export class Age {
 
-  public static CalculateAge(DateOfBirth: Date): number{
-        let age;
-        var year = new Date(DateOfBirth);
-       
-        var currentYear = new Date().getUTCFullYear();
+  public static CalculateAge(DateOfBirth: Date): number {
+    let age;
+    var year = new Date(DateOfBirth);
 
-         age = currentYear - year.getFullYear();
-        return age;
-    }
+    var currentYear = new Date().getUTCFullYear();
+
+    age = currentYear - year.getFullYear();
+    return age;
+  }
 }
